@@ -1,4 +1,4 @@
-const backendURL = "http://localhost:4000"
+const backendURL = "https://abg-beauty-hub-server.onrender.com"
 
 
 export const summaryApi = {
