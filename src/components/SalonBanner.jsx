@@ -65,7 +65,7 @@ function SalonBanner() {
                     </div>                
                 </div>
                 {/* Desktop Images */}
-                <div className='hidden md:flex h-full w-full overflow-hidden'>
+                <div className='hidden md:flex h-full w-full overflow-hidden z-10'>
                     {desktopImages.map((imageUrl, index) => (
                         <div 
                             key={index} 
