@@ -109,7 +109,7 @@ function ContactForm() {
               <Phone className="text-[#fd3da1] text-3xl" />
               <div>
                 <span className="text-sm text-gray-500">Call us</span>
-                <h4 className="font-medium">+2347036594624</h4>
+                <h4 className="font-medium">+1-7436594624</h4>
               </div>
             </div>
           </div>

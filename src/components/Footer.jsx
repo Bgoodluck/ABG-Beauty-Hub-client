@@ -25,7 +25,7 @@ function Footer() {
          <div>
             <p className='text-xl font-medium mb-5 text-[#fd3da1]'>GET IN TOUCH</p>
             <ul className='flex flex-col gap-1 text-gray-600 items-center sm:items-start'>
-                <li>+234-7036594624</li>
+                <li>+1-7436594624</li>
                 <li>abginfotech@outlook.com</li>
             </ul>
          </div>
