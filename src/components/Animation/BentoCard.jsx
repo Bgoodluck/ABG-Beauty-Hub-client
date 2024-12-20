@@ -4,8 +4,8 @@ function BentoCard({
     src,
     title,
     description,
-    playsInline,
-    controls,
+    playsInline = true,
+    controls = false,
 
     
 }) {
@@ -39,11 +39,5 @@ function BentoCard({
     </div>
   )
 }
-
-BentoCard.defaultProps = {
-    playsInline: true,
-    controls: true,
-}
-
 
 export default BentoCard
