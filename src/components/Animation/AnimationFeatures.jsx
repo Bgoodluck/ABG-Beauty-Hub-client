@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BentoCard from './BentoCard'
 import { TiLocationArrow } from 'react-icons/ti'
 import BentoTilt from './BentoTilt'
 
 function AnimationFeatures() {
+
+
+
+
+
+  useEffect(() => {
+    const handleVideoPlayback = () => {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.play().catch(error => {
+                console.log("Video autoplay failed:", error);
+            });
+        });
+    };
+
+    handleVideoPlayback();
+    document.addEventListener('touchstart', handleVideoPlayback, { once: true });
+
+    return () => {
+        document.removeEventListener('touchstart', handleVideoPlayback);
+    };
+}, [])
+
+
+
   return (
     <section className='bg-black pb-52'>
          <div className='container mx-auto px-3 md:px-10'>
@@ -21,7 +46,8 @@ ABG Beauty Lounge is your ultimate destination for elegance, self-care, and fash
                     src="videos/feature-1.mp4"
                     title={<>h<b>a</b>ir s<b>a</b>lon</>}
                     description="From trendy cuts to vibrant color transformations and nourishing treatments, our expert stylists craft looks that make a statement."
-                    
+                    playsInline
+                    controls={false}
                   />
              </BentoTilt>
 
@@ -31,6 +57,8 @@ ABG Beauty Lounge is your ultimate destination for elegance, self-care, and fash
                        src="videos/feature-2.mp4"
                        title={<>b<b>o</b>uti<b>q</b>ue</>}
                        description="Discover a curated collection of unisex clothing, beauty products, and accessories designed to reflect your unique style"
+                       playsInline
+                       controls={false}
                      /> 
                  </BentoTilt>
                  <BentoTilt className='bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0'>
@@ -38,13 +66,17 @@ ABG Beauty Lounge is your ultimate destination for elegance, self-care, and fash
                         src="videos/feature-3.mp4"
                         title={<>n<b>a</b>il studi<b>o</b></>}
                         description="Indulge in perfect manicures, artistic nail designs, and relaxing pedicures, all tailored to elevate your confidence."
+                        playsInline
+                        controls={false}
                      /> 
                  </BentoTilt>
                  <BentoTilt className='bento-tilt_1 me-14 md:col-span-1 md:me-0'>
                      <BentoCard
                         src="videos/feature-4.mp4"
                         title={<>bea<b>u</b>ty pr<b>o</b>ducts</>}
-                        description="Whether it's redefining your look, rejuvenating your spirit and skin, or enhancing your appearance, ABG is here to make you shine inside and out.."                      
+                        description="Whether it's redefining your look, rejuvenating your spirit and skin, or enhancing your appearance, ABG is here to make you shine inside and out.."  
+                        playsInline
+                        controls={false}                    
                      /> 
                  </BentoTilt>
 
@@ -66,6 +98,8 @@ ABG Beauty Lounge is your ultimate destination for elegance, self-care, and fash
                          muted
                          autoPlay
                          className='size-full object-cover object-center' 
+                         playsInline
+                         controls={false}
                       />
                  </BentoTilt>
              </div>

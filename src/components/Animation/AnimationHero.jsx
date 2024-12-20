@@ -96,6 +96,31 @@ function AnimationHero({ onNavigate }) {
 
     const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
+    useEffect(() => {
+        // Function to handle video playback
+        const handleVideoPlayback = () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.play().catch(error => {
+                    console.log("Video autoplay failed:", error);
+                });
+            });
+        };
+    
+        // Call on mount and when videos change
+        handleVideoPlayback();
+    
+        // Add event listener for user interaction
+        document.addEventListener('touchstart', handleVideoPlayback, { once: true });
+    
+        return () => {
+            document.removeEventListener('touchstart', handleVideoPlayback);
+        };
+    }, [currentIndex]);
+
+
+
+
 
   return (
     <div className='relative h-dvh w-screen overflow-x-hidden'>
@@ -125,6 +150,8 @@ function AnimationHero({ onNavigate }) {
                        src={getVideoSrc(upcomingVideoIndexDisplay)}
                        loop
                        muted
+                       playsInline
+                       controls={false}
                        id='current-video'
                        className='size-64 origin-center scale-150 object-cover object-center'
                        onLoadedData={handleVideoLoad}
@@ -138,6 +165,8 @@ function AnimationHero({ onNavigate }) {
                 src={getVideoSrc(currentIndex)}
                 loop
                 muted
+                playsInline
+                controls={false}
                 id='next-video'
                 className='absolute-center invisible absolute z-20 size-64 object-cover object-center'
                 onLoadedData={handleVideoLoad}
@@ -148,6 +177,8 @@ function AnimationHero({ onNavigate }) {
              autoPlay
              loop
              muted
+             playsInline
+             controls={false}
              className='absolute left-0 top-0 size-full object-cover object-center'
              onLoadedData={handleVideoLoad}
              />

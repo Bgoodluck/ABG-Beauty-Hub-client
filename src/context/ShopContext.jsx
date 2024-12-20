@@ -8,7 +8,7 @@ import { fetchWithAuth, handleApiError } from "../helpers/apiHelper";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
-    const currency = '₦';
+    const currency = '$';
     const delivery_fee = 10;
     const backendUrl = "https://abg-beauty-hub-server.onrender.com"
     const [search, setSearch] = useState('');
